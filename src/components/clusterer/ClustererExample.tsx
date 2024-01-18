@@ -9,8 +9,8 @@ import type { Marker } from "@googlemaps/markerclusterer";
 import { useEffect, useState, useRef } from "react";
 import trees from "../../data/trees";
 
-const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
-const MAP_ID = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID;
+const API_KEY = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY;
+const MAP_ID = import.meta.env.VITE_APP_GOOGLE_MAPS_MAP_ID;
 
 type TreeType = {
   key: string;
@@ -19,13 +19,13 @@ type TreeType = {
   lng: number;
 };
 
-export const  ClustererExample = () => {
+export const ClustererExample = () => {
   const [data, setData] = useState<TreeType[]>(trees);
 
   const handleAdd = (e: any) => {
     const coordinates = e.detail.latLng;
     const { lat, lng } = coordinates;
-    const name = String(Math.random())
+    const name = String(Math.random());
 
     setData([
       ...data,
@@ -52,7 +52,7 @@ export const  ClustererExample = () => {
       </APIProvider>
     </div>
   );
-}
+};
 
 type Point = google.maps.LatLngLiteral & { key: string };
 type Props = { points: Point[] };

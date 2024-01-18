@@ -13,7 +13,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../db/firebase";
 
-const MAP_ID = import.meta.env.VITE_GOOGLE_MAPS_MAP_ID;
+const MAP_ID = import.meta.env.VITE_APP_GOOGLE_MAPS_MAP_ID;
 
 const MapComponent = () => {
   const [zoom, setZoom] = useState(3);
